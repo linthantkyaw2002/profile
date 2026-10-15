@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="color-scheme" content="dark"/>
+    <meta name="theme-color" content="#09130d"/>
+    <title>Face Attendance — Engineering Overview | Lin Thant Kyaw</title>
+    <link rel="stylesheet" href="../css/overview.css?v=27.4"/>
+    <link rel="stylesheet" href="../css/overview-page.css?v=27.4"/>
+</head>
+<body>
+    <main class="overview-page-layout">
+        <article class="overview-page-frame">
+            <header class="overview-page-header">
+                <span class="overview-header-label">PROJECT / ENGINEERING OVERVIEW</span>
+                <a class="overview-back" href="../index.html#projects" aria-label="Back to projects">← Back to Projects</a>
+            </header>
+            <div class="overview-page-body">
+                <header class="overview-intro">
+                <span class="overview-kicker">ENGINEERING CASE STUDY</span>
+                <h2 id="overview-title">Face Attendance</h2>
+                <p class="overview-stack">Python · OpenCV · MTCNN · FaceNet · KNN</p>
+                </header>
+                <section class="overview-block">
+                <h3>Project Background</h3>
+                <p>Face Attendance is a Stamford International University project for recognizing registered individuals and recording attendance through a desktop application. I focused on building a consistent recognition pipeline and managing the application environment before prioritizing visual polish.</p>
+                </section>
+                <section class="overview-block">
+                <h3>Technical Implementation</h3>
+                <ul class="overview-list">
+                <li><strong>Data collection:</strong> Capturing facial samples at multiple angles for more representative training data.</li>
+                <li><strong>Preprocessing:</strong> Detecting, aligning, and preparing face regions with computer vision tools.</li>
+                <li><strong>Feature extraction:</strong> Converting facial images to numerical FaceNet embeddings.</li>
+                <li><strong>Classification:</strong> Using K-Nearest Neighbors to compare embeddings and predict registered identities.</li>
+                <li><strong>Attendance recording:</strong> Associating recognized identities with recorded attendance entries.</li>
+                <li><strong>Application integration:</strong> Working with Python dependencies, camera access, native libraries, and macOS application packaging.</li>
+                </ul>
+                </section>
+                <section class="overview-block">
+                <h3>Engineering Challenges</h3>
+                <p>The recognition pipeline depends on lighting, face angles, data consistency, and preprocessing choices. Packaging for Apple Silicon also required resolving Python environment differences, native dependencies, application-bundle settings, and camera permissions.</p>
+                </section>
+                <section class="overview-block">
+                <h3>What I Learned</h3>
+                <p>Reliable applications require more than correct model code. I learned to consider dataset quality, classification evaluation, dependency versions, permissions, and runtime compatibility alongside usability.</p>
+                </section>
+                <p class="overview-note">The browser demonstration tracks detected faces only. Unlike the original application, it does not perform identity recognition.</p>
+                <div class="overview-footer"><a class="overview-source" href="https://github.com/linthantkyaw2002/Stamford/tree/main/FaceAttendance_App" rel="noopener noreferrer" target="_blank">View source code ↗</a></div>
+
+            </div>
+        </article>
+        <a class="overview-bottom-back" href="../index.html#projects">← Back to Projects</a>
+    </main>
+</body>
+</html>

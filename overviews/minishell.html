@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="color-scheme" content="dark"/>
+    <meta name="theme-color" content="#09130d"/>
+    <title>Minishell — Engineering Overview | Lin Thant Kyaw</title>
+    <link rel="stylesheet" href="../css/overview.css?v=27.4"/>
+    <link rel="stylesheet" href="../css/overview-page.css?v=27.4"/>
+</head>
+<body>
+    <main class="overview-page-layout">
+        <article class="overview-page-frame">
+            <header class="overview-page-header">
+                <span class="overview-header-label">PROJECT / ENGINEERING OVERVIEW</span>
+                <a class="overview-back" href="../index.html#projects" aria-label="Back to projects">← Back to Projects</a>
+            </header>
+            <div class="overview-page-body">
+                <header class="overview-intro">
+                <span class="overview-kicker">ENGINEERING CASE STUDY</span>
+                <h2 id="overview-title">Minishell</h2>
+                <p class="overview-stack">C · Unix · POSIX · Readline · Make</p>
+                </header>
+                <section class="overview-block">
+                <h3>Project Background</h3>
+                <p>Minishell is a collaborative 42 Bangkok project where we implemented a Unix-like command interpreter in C. I wanted to understand how a shell connects user commands to the operating system. A shell runs in user space and uses system calls to request services from the kernel, including creating processes, executing programs, and communicating through pipes.</p>
+                </section>
+                <section class="overview-block">
+                <h3>Technical Implementation</h3>
+                <ul class="overview-list">
+                <li><strong>Parsing:</strong> Tokenization, environment-variable expansion, quoting, command structures, and redirections.</li>
+                <li><strong>Kernel interfaces:</strong> Using fork(), execve(), and waitpid() to create, execute, and manage child processes.</li>
+                <li><strong>Pipelines and file descriptors:</strong> Using pipe() and dup2() to connect standard input and output across commands.</li>
+                <li><strong>Built-in commands:</strong> Supporting cd, echo, pwd, env, export, unset, and exit.</li>
+                <li><strong>Signals and memory:</strong> Handling terminal interruptions, allocated resources, and cleanup.</li>
+                </ul>
+                </section>
+                <section class="overview-block">
+                <h3>Engineering Challenges</h3>
+                <p>Parsing, expansion, redirection, and execution are tightly connected. Small changes can affect many command scenarios, so systematic regression testing and careful resource handling were essential.</p>
+                </section>
+                <section class="overview-block">
+                <h3>What I Learned</h3>
+                <p>I developed a stronger understanding of the boundary between user-space applications and the kernel, inter-process communication, debugging, and collaborative systems development. The repeated need to rerun tests after changes also inspired my independent Flow CLI project.</p>
+                </section>
+                <p class="overview-note">Minishell uses operating-system APIs; it does not implement kernel code.</p>
+                <div class="overview-footer"><a class="overview-source" href="https://github.com/linthantkyaw2002/42_Bangkok/tree/main/minishell" rel="noopener noreferrer" target="_blank">View source code ↗</a></div>
+
+            </div>
+        </article>
+        <a class="overview-bottom-back" href="../index.html#projects">← Back to Projects</a>
+    </main>
+</body>
+</html>

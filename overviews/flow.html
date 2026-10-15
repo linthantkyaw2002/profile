@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="color-scheme" content="dark"/>
+    <meta name="theme-color" content="#09130d"/>
+    <title>Flow CLI — Engineering Overview | Lin Thant Kyaw</title>
+    <link rel="stylesheet" href="../css/overview.css?v=27.4"/>
+    <link rel="stylesheet" href="../css/overview-page.css?v=27.4"/>
+</head>
+<body>
+    <main class="overview-page-layout">
+        <article class="overview-page-frame">
+            <header class="overview-page-header">
+                <span class="overview-header-label">PROJECT / ENGINEERING OVERVIEW</span>
+                <a class="overview-back" href="../index.html#projects" aria-label="Back to projects">← Back to Projects</a>
+            </header>
+            <div class="overview-page-body">
+                <header class="overview-intro">
+                <span class="overview-kicker">ENGINEERING CASE STUDY</span>
+                <h2 id="overview-title">Flow CLI</h2>
+                <p class="overview-stack">C · Bash · Zsh · macOS · Linux</p>
+                </header>
+                <section class="overview-block">
+                <h3>Project Background</h3>
+                <p>While developing Minishell with a teammate, I kept rerunning the same command sequences to check for regressions. I started Flow independently so I could record reliable command sequences, save them under names, and replay them instead of typing everything again.</p>
+                </section>
+                <section class="overview-block">
+                <h3>Technical Implementation</h3>
+                <ul class="overview-list">
+                <li><strong>Shell integration:</strong> Capturing interactive commands through Bash and Zsh hooks.</li>
+                <li><strong>Workflow recording:</strong> Recording command sequences and saving reusable named workflows.</li>
+                <li><strong>Management:</strong> Listing, organizing, copying, combining, and restoring workflows.</li>
+                <li><strong>Replay:</strong> Running saved command sequences in the user’s shell environment.</li>
+                <li><strong>Cross-platform support:</strong> Supporting macOS and Linux environments, installation scripts, and shell differences.</li>
+                <li><strong>Reliability:</strong> Handling arguments, invalid input, workflow state, and filesystem-related operations.</li>
+                </ul>
+                </section>
+                <section class="overview-block">
+                <h3>Engineering Challenges</h3>
+                <p>Bash and Zsh use different command capture mechanisms, and replay depends on directory context, execution order, environment configuration, and safe handling of failures.</p>
+                </section>
+                <section class="overview-block">
+                <h3>What I Learned</h3>
+                <p>Flow taught me to recognize and solve inefficiencies in my own development workflow—and consider usability, documentation, portability, and test coverage as part of engineering.</p>
+                </section>
+                <section class="overview-block">
+                <h3>Future Direction</h3>
+                <p>My longer-term vision is to let developers import and share reviewed workflows, check prerequisites, preview actions, and automate repeatable development setups with better safety controls.</p>
+                </section>
+                <p class="overview-note">The portfolio’s Flow demo is a browser simulation. It never runs shell commands or Git operations on visitors’ computers.</p>
+                <div class="overview-footer"><a class="overview-source" href="https://github.com/linthantkyaw2002/Flow" rel="noopener noreferrer" target="_blank">View source code ↗</a></div>
+
+            </div>
+        </article>
+        <a class="overview-bottom-back" href="../index.html#projects">← Back to Projects</a>
+    </main>
+</body>
+</html>

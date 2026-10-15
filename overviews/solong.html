@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="color-scheme" content="dark"/>
+    <meta name="theme-color" content="#09130d"/>
+    <title>so_long — Engineering Overview | Lin Thant Kyaw</title>
+    <link rel="stylesheet" href="../css/overview.css?v=27.4"/>
+    <link rel="stylesheet" href="../css/overview-page.css?v=27.4"/>
+</head>
+<body>
+    <main class="overview-page-layout">
+        <article class="overview-page-frame">
+            <header class="overview-page-header">
+                <span class="overview-header-label">PROJECT / ENGINEERING OVERVIEW</span>
+                <a class="overview-back" href="../index.html#projects" aria-label="Back to projects">← Back to Projects</a>
+            </header>
+            <div class="overview-page-body">
+                <header class="overview-intro">
+                <span class="overview-kicker">ENGINEERING CASE STUDY</span>
+                <h2 id="overview-title">so_long</h2>
+                <p class="overview-stack">C · MiniLibX · Pixel Buffers · 2D Graphics</p>
+                </header>
+                <section class="overview-block">
+                <h3>Project Background</h3>
+                <p>so_long is a 42 Bangkok tile-based game developed in C with MiniLibX. Beyond making playable levels, I explored how individual pixels and sprite layers are composed into a complete 2D scene.</p>
+                </section>
+                <section class="overview-block">
+                <h3>Technical Implementation</h3>
+                <ul class="overview-list">
+                <li><strong>Pixel-level rendering:</strong> Reading colors from image buffers and writing them to a canvas using pixel offsets, line lengths, and bits-per-pixel information.</li>
+                <li><strong>Layer composition:</strong> Rendering grass and floor tiles first, then walls, collectibles, exits, the player, and enemies in order.</li>
+                <li><strong>Transparency:</strong> Skipping transparent sprite pixels so foreground objects blend correctly with previously drawn layers.</li>
+                <li><strong>Map validation:</strong> Using flood-fill traversal to verify that collectibles and the exit are reachable.</li>
+                <li><strong>Game systems:</strong> Managing player movement, enemy behavior, collisions, collectibles, restart, and completion.</li>
+                <li><strong>Animation and portability:</strong> Advancing animation frames and handling graphics-library dependencies across Linux and macOS.</li>
+                </ul>
+                </section>
+                <section class="overview-block">
+                <h3>Engineering Challenges</h3>
+                <p>The rendering order, transparency handling, moving enemies, underlying tile state, and animation timing must remain consistent. Porting across environments also required careful graphics configuration and cleanup.</p>
+                </section>
+                <section class="overview-block">
+                <h3>What I Learned</h3>
+                <p>I gained practical experience with pixel memory, scene composition, event-driven game logic, graph traversal, resource management, and compatibility between environments.</p>
+                </section>
+                <p class="overview-note">The playable website demo is a JavaScript browser adaptation using original artwork; the source project is written in C.</p>
+                <div class="overview-footer"><a class="overview-source" href="https://github.com/linthantkyaw2002/42_Bangkok/tree/main/so_long" rel="noopener noreferrer" target="_blank">View source code ↗</a></div>
+
+            </div>
+        </article>
+        <a class="overview-bottom-back" href="../index.html#projects">← Back to Projects</a>
+    </main>
+</body>
+</html>
