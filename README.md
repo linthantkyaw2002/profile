@@ -117,7 +117,7 @@ Flow runs automatically with a deliberate ~1.45 second per-command rhythm: the c
 
 - Existing V26 layout, animations, keyboard navigation, and four demos remain unchanged.
 - Revised the hero, four engineering focus areas, and project-card descriptions.
-- Each project card has a **View Project Overview** button opening an accessible native dialog with technical background, implementation, challenges, and lessons.
+- Each project card has a **View Project Overview** action opening the shared demo dialog with technical background, implementation, challenges, and lessons.
 - Six Toolkit flip cards replace the original three; existing hover/click-to-pin interactions are reused.
 - Added a short engineering-mindset paragraph and expanded Flow's motivation, current scope, and longer-term vision.
 - Preserved the latest approved sample résumé PDF as `assets/docs/Lin_Thant_Kyaw_Resume.pdf`; replace that file after editing your CV.
@@ -141,3 +141,16 @@ Flow runs automatically with a deliberate ~1.45 second per-command rhythm: the c
 - Match the **View source code** links' underline hover/focus styling with **View Project Overview**, including links inside overview dialogs.
 - Update main script and overview stylesheet cache versions. All four demo modules, six skill cards, and the existing site layout remain unchanged.
 - After updating an existing GitHub Pages /docs deployment, replace `docs/index.html`, `docs/js/main.js`, `docs/js/overviews.js`, and `docs/css/overview.css`.
+
+## V27.4 — Reliable Mobile Project Overviews
+
+On mobile, **View Project Overview** navigates to a dedicated static HTML page in `overviews/`; this works even if browser modal APIs or JS are unsupported. On desktop, the same anchors are enhanced into the existing popups. All four pages reuse the engineering content from their templates and provide a Back to Projects link. Upload the `overviews/` directory and `css/overview-page.css` along with the updated index and JS, otherwise the mobile links will 404.
+
+## V27.5 — Project Overview shared popup on mobile and desktop
+
+- **View Project Overview** now opens the **same shared popup** used by Try Demo, on mobile, tablet, and desktop. No page navigation is required.
+- Reused the working `js/modal.js` lifecycle and close/Escape/backdrop handling rather than maintaining a separate mobile dialog or overlay.
+- Project overview content continues to come from the four HTML templates in `index.html`; the same sections, links, and engineering details are preserved.
+- Scrolling remains inside the popup; reopening an overview begins at the top.
+- Existing `overviews/*.html` standalone pages are retained only as a fallback if JavaScript is disabled or a visitor opens the link in a new tab.
+- Minishell, Face Attendance, Flow CLI, so_long, styling, and project links remain unchanged.

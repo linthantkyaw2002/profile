@@ -1,13 +1,12 @@
 // Main portfolio interactions — original V16 design, four small browser demos.
 import { createDemoModal } from "./modal.js";
-import { initProjectOverviews } from "./overviews.js?v=27.4";
+import { initProjectOverviews } from "./overviews.js?v=27.5";
 import { createMinishell } from "./demos/minishell.js";
 import { createFaceDemo } from "./demos/face.js";
 import { createFlowDemo } from "./demos/flow.js?v=24";
 import { createSoLongDemo } from "./demos/solong.js?v=25";
 
 const demoModal = createDemoModal();
-initProjectOverviews();
 const modalContent = document.getElementById("demo-modal-content");
 const modalTitle = document.getElementById("demo-modal-title");
 const dialog = document.getElementById("demo-modal");
@@ -16,6 +15,8 @@ let activeDemo = null;
 function showDemo(kind, origin = null) {
     activeDemo?.destroy?.();
     activeDemo = null;
+    dialog.classList.remove("is-overview-demo");
+    document.getElementById("demo-close").setAttribute("aria-label", "Close demo");
     modalContent.replaceChildren();
     if (kind === "face") {
         modalTitle.textContent = "linthant — ~/portfolio — face attendance";
@@ -38,7 +39,38 @@ function showDemo(kind, origin = null) {
     else activeDemo.focus();
 }
 
-demoModal.setOnOpen(() => activeDemo?.focus?.());
+// Engineering overviews share the proven demo dialog instead of opening a
+// separate mobile popup or navigating away from the portfolio.
+function showOverview(name, origin) {
+    const template = document.getElementById(`overview-template-${name}`);
+    if (!template) return;
+
+    activeDemo?.destroy?.();
+    activeDemo = null;
+    modalContent.replaceChildren();
+    dialog.classList.add("is-overview-demo");
+    document.getElementById("demo-close").setAttribute("aria-label", "Close project overview");
+    modalTitle.textContent = `linthant — ~/portfolio — ${name} / overview`;
+
+    const scroll = document.createElement("div");
+    scroll.className = "overview-scroll overview-demo-scroll";
+    scroll.appendChild(template.content.cloneNode(true));
+    modalContent.appendChild(scroll);
+    scroll.scrollTop = 0;
+
+    if (!dialog.open) demoModal.open(origin);
+    else document.getElementById("demo-close").focus({ preventScroll: true });
+}
+
+initProjectOverviews(showOverview);
+
+demoModal.setOnOpen(() => {
+    if (dialog.classList.contains("is-overview-demo")) {
+        document.getElementById("demo-close").focus({ preventScroll: true });
+    } else {
+        activeDemo?.focus?.();
+    }
+});
 demoModal.setOnClose(() => { activeDemo?.destroy?.(); activeDemo = null; });
 
 // Both Minishell launchers and the Face Attendance card reuse one window.

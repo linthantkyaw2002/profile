@@ -1,5 +1,5 @@
-/* V27 engineering overviews — independent informational popup.
-   Existing project grid, card previews, demos and animation rules are unchanged. */
+/* Project overview content and links inside the existing shared demo modal.
+   The project grid, preview cards, and other animations are unchanged. */
 .project-links {
     display: flex;
     gap: 11px 21px;
@@ -71,72 +71,25 @@
     max-width: 100%;
 }
 
-.overview-modal {
-    padding: 0;
-    border: 1px solid #3f7254;
-    border-radius: 14px;
-    width: min(790px, calc(100vw - 28px));
-    max-width: none;
-    max-height: min(88vh, 920px);
-    color: #e5f6eb;
+/* Reuse the modal that already works for Minishell, Face Attendance,
+   Flow CLI, and so_long on both desktop and touch devices. */
+.demo-modal.is-overview-demo {
     background: #09130d;
+}
+
+.demo-modal.is-overview-demo .demo-modal-content {
     overflow: hidden;
-    box-shadow: 0 28px 90px rgba(0,0,0,.72);
 }
 
-.overview-modal::backdrop {
-    background: rgba(0, 0, 0, .78);
-    backdrop-filter: blur(5px);
-}
-
-.overview-frame {
+.overview-demo-scroll {
+    flex: 1 1 auto;
     min-height: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    max-height: min(88vh, 920px);
-}
-
-.overview-header {
-    height: 54px;
-    flex-shrink: 0;
-    border-bottom: 1px solid #294b37;
-    background: #13231a;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 17px 0 25px;
-}
-
-.overview-header-label {
-    color: #87b79a;
-    font: 600 11px var(--mono-font);
-    letter-spacing: 1px;
-}
-
-.overview-close {
-    background: transparent;
-    border: 0;
-    border-radius: 6px;
-    width: 34px;
-    height: 34px;
-    padding: 0;
-    color: #b8dec5;
-    cursor: pointer;
-    font: 28px/1 var(--main-font);
-    display: grid;
-    place-items: center;
-}
-
-.overview-close:hover, .overview-close:focus-visible {
-    color: #fff;
-    background: #24412e;
-}
-
-.overview-scroll {
     overflow-y: auto;
     overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
     padding: 27px 34px 32px;
+    scrollbar-color: #345b42 transparent;
+    scrollbar-width: thin;
 }
 
 .overview-intro {
@@ -221,70 +174,11 @@
 }
 
 @media (max-width: 600px) {
-    .overview-header {
-        padding-left: 15px;
-    }
-    .overview-scroll {
-        padding: 23px 18px 27px;
-    }
-    .overview-header-label {
-        font-size: 9px;
+    .overview-demo-scroll {
+        padding: 22px 18px 26px;
     }
     .project-links {
         gap: 11px 15px;
     }
 }
 
-/* Mobile-safe overview layer, independent of the native dialog top layer.
-   It is only active when native modal opening is unavailable or bypassed on touch. */
-.overview-backdrop[hidden] {
-    display: none;
-}
-
-.overview-backdrop {
-    position: fixed;
-    inset: 0;
-    z-index: 2100;
-    background: rgba(0, 0, 0, .78);
-    -webkit-backdrop-filter: blur(5px);
-    backdrop-filter: blur(5px);
-}
-
-.overview-modal.is-fallback-open {
-    display: block;
-    position: fixed;
-    inset: 0;
-    z-index: 2101;
-    margin: auto;
-}
-
-html.overview-is-open,
-html.overview-is-open body {
-    overflow: hidden;
-}
-
-@media (max-width: 600px) {
-    .overview-modal.is-fallback-open {
-        width: calc(100vw - 22px);
-        max-height: calc(100vh - 24px);
-        max-height: calc(100dvh - 24px);
-    }
-
-    .overview-frame {
-        max-height: calc(100vh - 24px);
-        max-height: calc(100dvh - 24px);
-    }
-
-    .overview-scroll {
-        -webkit-overflow-scrolling: touch;
-        min-height: 0;
-        flex: 1;
-    }
-
-    /* On touchscreens, give both actions a clear link affordance. */
-    .project-links .source-link,
-    .project-links .overview-link {
-        text-decoration-thickness: 1px;
-        text-underline-offset: 4px;
-    }
-}
