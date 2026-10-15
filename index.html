@@ -17,7 +17,7 @@
     <link href="css/face.css" rel="stylesheet"/>
     <link href="css/flow.css?v=24" rel="stylesheet"/>
     <link href="css/solong.css?v=25" rel="stylesheet"/>
-    <link href="css/overview.css?v=27" rel="stylesheet"/>
+    <link href="css/overview.css?v=27.3" rel="stylesheet"/>
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -65,7 +65,7 @@
                 <p class="eyebrow hero-intro">HELLO, I'M</p>
                 <h1 class="hero-name">Lin Thant Kyaw</h1>
                 <p class="hero-tagline">I build software <span class="hero-gradient">from the inside out.</span></p>
-                <p class="hero-description">I'm a software engineer studying at Stamford International University and 42 Bangkok. I enjoy understanding how software works beneath the surface—from Unix processes and algorithms to computer vision and automated testing. I build practical tools and applications, focusing on problem-solving, reliability, and learning through implementation.</p>
+                <p class="hero-description">I'm an aspiring software engineer studying at Stamford International University and 42 Bangkok. I enjoy understanding how software works beneath the surface—from Unix processes and algorithms to computer vision and automated testing. I build practical tools and applications, focusing on problem-solving, reliability, and learning through implementation.</p>
                 <div class="hero-buttons">
                     <a class="my-button" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
                     <a class="outline-button resume-button" download="" href="assets/docs/Lin_Thant_Kyaw_Resume.pdf"> Résumé <span aria-hidden="true">↓</span> </a>
@@ -510,7 +510,8 @@
             <div class="demo-modal-content" id="demo-modal-content"></div>
         </div>
     </dialog>
-    <dialog aria-labelledby="overview-title" class="overview-modal" id="project-overview-modal">
+    <div class="overview-backdrop" id="overview-backdrop" hidden></div>
+    <dialog aria-labelledby="overview-title" aria-modal="true" class="overview-modal" id="project-overview-modal">
         <div class="overview-frame">
             <div class="overview-header"><span class="overview-header-label">PROJECT / ENGINEERING OVERVIEW</span><button aria-label="Close project overview" class="overview-close" id="overview-close" type="button">×</button></div>
             <div class="overview-scroll" id="overview-scroll">
@@ -651,6 +652,6 @@
     </template>
 
     <!-- Existing interactions and the new Minishell demo -->
-    <script src="js/main.js?v=27.1" type="module"></script>
+    <script src="js/main.js?v=27.3" type="module"></script>
 </body>
 </html>

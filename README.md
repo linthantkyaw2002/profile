@@ -1,7 +1,5 @@
 # Lin Thant Kyaw — Portfolio V26
 
-website link: https://linthantkyaw2002.github.io/profile/
-
 Static portfolio: HTML, CSS, JavaScript modules, Bootstrap, and browser-side MediaPipe.
 Designed for GitHub Pages or Vercel; no server-side code, database, or Node build required.
 
@@ -136,3 +134,10 @@ Flow runs automatically with a deliberate ~1.45 second per-command rhythm: the c
 - Reindented `index.html` using the original V26 four-space HTML nesting style.
 - Expanded the new `css/overview.css` rules into readable blocks.
 - The HTML structure, project and skill content, JavaScript logic, CSS styling, and all interactive demos remain unchanged.
+
+### V27.3 — Mobile Project Overview and Link Underlines
+- Project overview buttons now open through a fixed-position, scrollable overlay on touch devices and small screens, avoiding native-dialog compatibility problems on mobile browsers. Desktop retains its native modal.
+- Add backdrop-tap dismissal, Escape handling, keyboard focus containment, and focus restoration for the mobile fallback.
+- Match the **View source code** links' underline hover/focus styling with **View Project Overview**, including links inside overview dialogs.
+- Update main script and overview stylesheet cache versions. All four demo modules, six skill cards, and the existing site layout remain unchanged.
+- After updating an existing GitHub Pages /docs deployment, replace `docs/index.html`, `docs/js/main.js`, `docs/js/overviews.js`, and `docs/css/overview.css`.

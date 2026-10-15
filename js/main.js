@@ -1,6 +1,6 @@
 // Main portfolio interactions — original V16 design, four small browser demos.
 import { createDemoModal } from "./modal.js";
-import { initProjectOverviews } from "./overviews.js?v=27.1";
+import { initProjectOverviews } from "./overviews.js?v=27.3";
 import { createMinishell } from "./demos/minishell.js";
 import { createFaceDemo } from "./demos/face.js";
 import { createFlowDemo } from "./demos/flow.js?v=24";
