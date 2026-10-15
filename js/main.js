@@ -3,7 +3,7 @@ import { createDemoModal } from "./modal.js";
 import { initProjectOverviews } from "./overviews.js?v=27.5";
 import { createMinishell } from "./demos/minishell.js";
 import { createFaceDemo } from "./demos/face.js";
-import { createFlowDemo } from "./demos/flow.js?v=24";
+import { createFlowDemo } from "./demos/flow.js?v=27.6";
 import { createSoLongDemo } from "./demos/solong.js?v=25";
 
 const demoModal = createDemoModal();
@@ -16,6 +16,7 @@ function showDemo(kind, origin = null) {
     activeDemo?.destroy?.();
     activeDemo = null;
     dialog.classList.remove("is-overview-demo");
+    dialog.classList.toggle("is-flow-demo", kind === "flow");
     document.getElementById("demo-close").setAttribute("aria-label", "Close demo");
     modalContent.replaceChildren();
     if (kind === "face") {
@@ -49,6 +50,7 @@ function showOverview(name, origin) {
     activeDemo = null;
     modalContent.replaceChildren();
     dialog.classList.add("is-overview-demo");
+    dialog.classList.remove("is-flow-demo");
     document.getElementById("demo-close").setAttribute("aria-label", "Close project overview");
     modalTitle.textContent = `linthant — ~/portfolio — ${name} / overview`;
 

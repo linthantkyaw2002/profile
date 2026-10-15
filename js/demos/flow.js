@@ -100,6 +100,10 @@ export function createFlowDemo({ container, backToShell }) {
                 </div>
                 <div class="flow-workspace-panel">
                     <div class="flow-pane-heading"><span>LIVE WORKSPACE</span><span class="flow-count">0 items</span></div>
+                    <div class="flow-live-command" aria-label="Current replay command">
+                        <span class="flow-live-label">CURRENT COMMAND <span class="flow-live-phase">READY</span></span>
+                        <code class="flow-live-text">Choose a workflow above to watch its effects here.</code>
+                    </div>
                     <div class="flow-workspace-meta"><span class="flow-cwd">/</span><span class="flow-activity">Awaiting replay</span></div>
                     <div class="flow-files" role="tree" aria-label="Simulated project filesystem"></div>
                     <div class="flow-tests" aria-label="Simulated tester results"></div>
@@ -134,6 +138,8 @@ export function createFlowDemo({ container, backToShell }) {
     const fileCount = $(".flow-count");
     const cwdLabel = $(".flow-cwd");
     const activity = $(".flow-activity");
+    const liveCommand = $(".flow-live-text");
+    const livePhase = $(".flow-live-phase");
     const progressLabel = $(".flow-progress-label");
     const progressTrack = $(".flow-progress-track");
     const progressFill = $(".flow-progress-fill");
@@ -231,6 +237,13 @@ export function createFlowDemo({ container, backToShell }) {
         while (transcript.childElementCount > 140) transcript.firstElementChild.remove();
         transcriptScroll.scrollTop = transcriptScroll.scrollHeight;
         return line;
+    }
+
+    function setLiveCommand(command, state = "ready") {
+        liveCommand.textContent = command;
+        livePhase.textContent = state === "running" ? "RUNNING" : state === "done" ? "DONE"
+            : state === "error" ? "ERROR" : state === "complete" ? "COMPLETE" : "READY";
+        livePhase.dataset.state = state;
     }
 
     function updateMeta() {
@@ -461,7 +474,10 @@ export function createFlowDemo({ container, backToShell }) {
     function stopReplay(message = "Playback stopped") {
         cancelTimer();
         remainingDelay = 0;
-        if (playing || paused) showText(message, "flow-notice");
+        if (playing || paused) {
+            showText(message, "flow-notice");
+            setLiveCommand(message || "Replay stopped", "ready");
+        }
         playing = false;
         paused = false;
         phase = "before";
@@ -477,6 +493,7 @@ export function createFlowDemo({ container, backToShell }) {
             playing = false;
             showText(`✓ Workflow completed: ${stepIndex}/${current.commands.length} commands`, "flow-success");
             activity.textContent = "Replay finished";
+            setLiveCommand(`Completed ${stepIndex}/${current.commands.length} commands`, "complete");
             updateMeta();
             return;
         }
@@ -485,6 +502,7 @@ export function createFlowDemo({ container, backToShell }) {
             activePath = "";
             renderFiles();
             showText(`$ ${spec.text}`, "flow-command-line");
+            setLiveCommand(`$ ${spec.text}`, "running");
             activity.textContent = "Executing command...";
             phase = "execute";
             scheduleNext(REPLAY_TIMING.command);
@@ -494,6 +512,7 @@ export function createFlowDemo({ container, backToShell }) {
             try {
                 const result = execute(spec);
                 showText(`✓ ${result}`, "flow-success");
+                setLiveCommand(`$ ${spec.text}`, "done");
                 stepIndex++;
                 renderFiles();
                 updateMeta();
@@ -501,6 +520,7 @@ export function createFlowDemo({ container, backToShell }) {
                 scheduleNext(REPLAY_TIMING.result);
             } catch (error) {
                 showText(`✗ ${error.message}`, "flow-error");
+                setLiveCommand(`${spec.text} — ${error.message}`, "error");
                 activity.textContent = "Workflow stopped on error";
                 playing = false;
                 paused = false;
@@ -521,6 +541,7 @@ export function createFlowDemo({ container, backToShell }) {
         stepIndex = 0;
         phase = "before";
         resetFilesystem(selected.seed);
+        setLiveCommand(`Preparing ${name}…`, "ready");
         updateMeta();
         transcript.replaceChildren();
         showText(`$ flow run ${name}`, "flow-command-line");
@@ -620,7 +641,12 @@ export function createFlowDemo({ container, backToShell }) {
     updateMeta();
 
     return {
-        focus() { input.focus({ preventScroll: true }); },
+        // Avoid summoning a virtual keyboard when a visitor only wants to watch playback.
+        focus() {
+            if (!window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
+                input.focus({ preventScroll: true });
+            }
+        },
         destroy() { destroyed = true; cancelTimer(); playing = false; paused = false; }
     };
 }

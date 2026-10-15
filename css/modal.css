@@ -41,6 +41,23 @@
     cursor: pointer;
 }
 
+/* Project actions respond to the card width, including when a foldable
+   changes posture or the site is opened beside another application. */
+.project-card { container: project-card / inline-size; }
+
+@container project-card (max-width: 520px) {
+    .project-tools-row { flex-direction: column; align-items: flex-start; }
+    .project-tools-row .project-tags { width: 100%; }
+}
+
+/* Fallback for browsers without CSS container-query support. */
+@supports not (container-type: inline-size) {
+    @media (max-width: 1099px) {
+        .project-tools-row { flex-direction: column; align-items: flex-start; }
+        .project-tools-row .project-tags { width: 100%; }
+    }
+}
+
 /* ------------------- Shared demo window ------------------- */
 .demo-modal {
     position: fixed;
@@ -249,6 +266,8 @@
 .shell-footer { color: #80a18e; font: 10px var(--mono-font); margin-top: 10px; }
 
 @media (max-width: 767px) {
+    .project-tools-row { flex-direction: column; align-items: flex-start; }
+    .project-tools-row .project-tags { width: 100%; }
     .hero-demo-hint { font-size: 8px; padding: 3px 5px; }
     .demo-modal { width: calc(100vw - 18px); height: min(660px, calc(100vh - 28px)); border-radius: 10px; }
     .mini-shell { padding: 13px 12px; font-size: 11.5px; }

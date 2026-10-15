@@ -652,7 +652,8 @@ header .navbar-toggler { display: none; border-color: var(--primary-border); pad
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     /* Reserve each card's expanded height so the next section never shifts on hover. */
-    grid-auto-rows: 274px;
+    --skill-open-height: 300px;
+    grid-auto-rows: var(--skill-open-height);
     gap: 17px;
     align-items: start;
 }
@@ -718,13 +719,17 @@ header .navbar-toggler { display: none; border-color: var(--primary-border); pad
     border-color: rgba(104, 213, 150, 0.75);
     background: linear-gradient(160deg, #173326, #0a160f 82%);
     box-shadow: 0 12px 34px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(112, 236, 173, 0.08);
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #44775b transparent;
 }
 .skill-card.is-flipped,
-.skill-card.is-flipped .skill-flip { height: 274px; }
+.skill-card.is-flipped .skill-flip { height: var(--skill-open-height); }
 .skill-card.is-flipped .skill-flip-inner { transform: rotateY(180deg); }
 .skill-card.is-flipped .skill-face::before { transform: scaleX(1); }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-    .skill-card:hover:not(.force-front) { height: 274px; }
+    .skill-card:hover:not(.force-front) { height: var(--skill-open-height); }
     .skill-card:hover:not(.force-front) .skill-flip-inner { transform: rotateY(180deg); }
     .skill-card:hover:not(.force-front) .skill-face::before { transform: scaleX(1); }
 }
@@ -754,6 +759,33 @@ header .navbar-toggler { display: none; border-color: var(--primary-border); pad
 .skill-detail { display: block; margin-bottom: 9px; color: #c6dfd1; font-size: 12px; line-height: 1.48; }
 .skill-detail b { color: #81e9b3; font-weight: 650; }
 .skill-back .skill-hint { color: #97d9b6; }
+
+/* Wider cards and full-height backs for tablets and unfolding devices.
+   Keep a constant tile height here so folded/unfolded touch layouts have
+   no large dead space between rows while a card is not flipped. */
+@media (max-width: 1099px) {
+    .skill-card, .skill-card .skill-flip { height: var(--skill-open-height); }
+    .skill-card { transition: transform 0.24s ease; }
+}
+
+@media (min-width: 600px) and (max-width: 1099px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        --skill-open-height: 320px;
+    }
+}
+
+@media (max-width: 599px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        --skill-open-height: 330px;
+    }
+}
+
+@media (max-width: 340px) {
+    .skills-grid { --skill-open-height: 390px; }
+    .skill-face { padding: 20px; }
+}
 
 /* ------------------- Currently Building ------------------- */
 .now-card { display: grid; grid-template-columns: 1fr 0.96fr; border: 1px solid #2b4935; border-radius: 14px; background: linear-gradient(130deg, #14261c, #0c1510); overflow: hidden; }

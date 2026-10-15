@@ -154,3 +154,20 @@ On mobile, **View Project Overview** navigates to a dedicated static HTML page i
 - Scrolling remains inside the popup; reopening an overview begins at the top.
 - Existing `overviews/*.html` standalone pages are retained only as a fallback if JavaScript is disabled or a visitor opens the link in a new tab.
 - Minishell, Face Attendance, Flow CLI, so_long, styling, and project links remain unchanged.
+
+## V27.6 — Flow CLI mobile readability
+
+- The Flow modal uses the available mobile viewport height instead of a short 660px cap.
+- Flow's terminal and file tree now have significantly larger, readable panels on phones, with a vertically scrollable modal body rather than two tiny, equally compressed panels.
+- Added a live **Current Command** strip above the workspace tree, so visitors can follow each command and its effect while the terminal is scrolled out of view.
+- Four tester statuses remain readable and untruncated below the workspace.
+- Flow no longer automatically focuses its text input on coarse-pointer phones, avoiding an unnecessary virtual keyboard.
+- The workflow timing, commands, speed slider, pause/stop controls, and other demos remain unchanged.
+
+## V27.7 — Responsive card and foldable-screen refinements
+
+- Project card technology tags always precede **Try Demo** on a separate line when the individual card is narrow. Mobile layouts also enforce the same order.
+- Six Toolkit cards use three columns on wide screens, two on medium/tablet/unfolded widths, and one on narrow screens. Flipped backs have height allocated for their content and may scroll internally when text is enlarged.
+- Flow keeps its terminal and workspace readable in short landscape viewports by letting the shared popup content scroll.
+- CSS responds to available viewport/card dimensions, not to particular phone models. Fold/rotate and browser split-screen transitions can reflow without JavaScript device detection.
+- Existing interactive demos, content, file organization, and overview behavior are otherwise unchanged.
