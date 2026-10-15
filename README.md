@@ -1,5 +1,7 @@
 # Lin Thant Kyaw — Portfolio V26
 
+website : https://linthantkyaw2002.github.io/profile/
+
 Static portfolio: HTML, CSS, JavaScript modules, Bootstrap, and browser-side MediaPipe.
 Designed for GitHub Pages or Vercel; no server-side code, database, or Node build required.
 
