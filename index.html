@@ -1,264 +1,656 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lin Thant Kyaw | Portfolio</title>
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
-
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/f537e38c2a.js" crossorigin="anonymous"></script>
-
-    <!-- Typed.js -->
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="#040806" name="theme-color"/>
+    <meta
+        content="Lin Thant Kyaw — aspiring software engineer at Stamford International University and 42 Bangkok. Explore systems programming, computer vision, developer tools, and interactive projects."
+        name="description"/>
+    <title>Lin Thant Kyaw | Software Engineering Portfolio</title>
+    <!-- Bootstrap: retain the layout utilities from the original portfolio -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css" />
+    <link href="css/style.css?v=27.1" rel="stylesheet"/>
+    <link href="css/animations.css" rel="stylesheet"/>
+    <link href="css/modal.css" rel="stylesheet"/>
+    <link href="css/face.css" rel="stylesheet"/>
+    <link href="css/flow.css?v=24" rel="stylesheet"/>
+    <link href="css/solong.css?v=25" rel="stylesheet"/>
+    <link href="css/overview.css?v=27" rel="stylesheet"/>
 </head>
-
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <!-- Header -->
     <header class="sticky-top">
-        <nav class="navbar navbar-expand-xl navbar-dark">
-            <a class="navbar-brand" href="#home">Lin Thant Kyaw</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#homeNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="homeNavbar">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item px-3"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item px-3"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item px-3"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item px-3"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item px-3"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
+        <nav class="navbar navbar-dark">
+            <div class="container navbar-inner">
+                <!-- Interactive avatar: anchored beside the name, not a full-screen modal -->
+                <div class="brand-profile" id="brand-profile">
+                    <button aria-controls="profile-preview" aria-expanded="false" aria-label="Show profile photo"
+                        class="brand-mark profile-toggle" id="profile-toggle" type="button">LTK</button>
+                    <a aria-label="Lin Thant Kyaw — back to home" class="navbar-brand" href="#home"> Lin Thant Kyaw </a>
+                    <div aria-hidden="true" aria-label="Profile photo preview" class="profile-popover" id="profile-preview">
+                        <div class="profile-photo-frame">
+                            <img alt="Placeholder portrait illustration" height="235"
+                                src="assets/images/profile-placeholder.svg" width="260"/>
+                            <span class="profile-photo-caption">PHOTO COMING SOON</span>
+                        </div>
+                        <div class="profile-popover-meta">
+                            <strong>Lin Thant Kyaw</strong>
+                            <span>Software engineering student</span>
+                        </div>
+                    </div>
+                </div>
+                <button aria-controls="homeNavbar" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler" id="menu-toggle" type="button"> <span class="navbar-toggler-icon"></span> </button>
+                <!-- Keep page links and GitHub together on the right -->
+                <div class="nav-actions">
+                    <div class="navbar-links" id="homeNavbar">
+                        <a href="#projects">Projects</a>
+                        <a href="#skills">Skills</a>
+                        <a href="#now">Now</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <a class="github-link" href="https://github.com/linthantkyaw2002" rel="noopener noreferrer" target="_blank">GitHub ↗</a>
+                </div>
             </div>
         </nav>
     </header>
-
-    <!-- Home -->
-    <section id="home" class="container-fluid text-center py-5">
-        <div class="container mt-5">
-            <div class="profile-pic mb-4 mx-auto">
-                <img src="https://firstbenefits.org/wp-content/uploads/2017/10/placeholder-1024x1024.png"
-                    alt="Lin Thant Kyaw" class="rounded-circle img-fluid" />
+    <main id="main">
+        <!-- Home -->
+        <section class="container hero-section" id="home">
+            <div class="hero-content">
+                <div class="availability"><span class="status-dot"></span> OPEN TO SOFTWARE ENGINEERING INTERNSHIPS</div>
+                <p class="eyebrow hero-intro">HELLO, I'M</p>
+                <h1 class="hero-name">Lin Thant Kyaw</h1>
+                <p class="hero-tagline">I build software <span class="hero-gradient">from the inside out.</span></p>
+                <p class="hero-description">I'm a software engineer studying at Stamford International University and 42 Bangkok. I enjoy understanding how software works beneath the surface—from Unix processes and algorithms to computer vision and automated testing. I build practical tools and applications, focusing on problem-solving, reliability, and learning through implementation.</p>
+                <div class="hero-buttons">
+                    <a class="my-button" href="#projects">Explore my work <span aria-hidden="true">↗</span></a>
+                    <a class="outline-button resume-button" download="" href="assets/docs/Lin_Thant_Kyaw_Resume.pdf"> Résumé <span aria-hidden="true">↓</span> </a>
+                </div>
+                <p class="hero-education">
+                    <span class="education-label">EDUCATION</span>
+                    <span class="education-school">Stamford International University</span>
+                    <span aria-hidden="true" class="education-divider">/</span>
+                    <span class="education-school">42 Bangkok</span>
+                </p>
             </div>
-            <h1 class="glow font-weight-bold">Lin Thant Kyaw</h1>
-            <h2>I'm a <span class="multipleText greenTest font-weight-bold"></span></h2>
-            <p class="text-white mt-3 px-md-5">
-                A passionate software engineer and web developer focused on creating responsive, user-friendly
-                experiences — combining C programming, IoT systems with ESP32, and modern web technologies.
-            </p>
-            <div class="social-media navbar navbar-expand justify-content-center mt-4">
-                <ul class="navbar-nav">
-                    <li class="nav-item px-2"><a class="nav-link" href="#"><i class="fa-brands fa-github"></i></a></li>
-                    <li class="nav-item px-2"><a class="nav-link" href="#"><i class="fa-brands fa-linkedin"></i></a>
-                    </li>
-                    <li class="nav-item px-2"><a class="nav-link" href="#"><i class="fa-brands fa-instagram"></i></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="my-button mt-3"><a href="#contact">Hire Me</a></div>
-        </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="container text-center py-5">
-        <h1 class="glow mb-4">About Me</h1>
-        <p class="lead mx-auto" style="max-width: 800px;">
-            Hello! I'm <span class="greenTest">Lin Thant Kyaw</span>, a passionate learner and problem solver with a
-            strong interest in
-            <b>software engineering, IoT systems, and full-stack web development</b>.
-        </p>
-        <p class="mt-3 mx-auto" style="max-width: 800px;">
-            I’m currently pursuing a <b>Bachelor of Information Technology</b> at
-            <span class="greenTest">Stamford International University</span> (Bangkok) and studying
-            <b>low-level C programming</b> at <span class="greenTest">42 Bangkok</span>.
-        </p>
-        <p class="mt-3 mx-auto" style="max-width: 800px;">
-            My goal is to merge <b>efficiency with clean design</b> — whether it’s a smart garden system or a modern
-            website.
-        </p>
-        <div class="my-button mt-4"><a href="#projects">View My Work</a></div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="container text-center py-5">
-        <h1 class="glow mb-4">Skills</h1>
-        <div class="row">
-            <div class="col-6 col-md-4 mb-4"><i class="fa-solid fa-code fa-2x greenTest mb-2"></i>
-                <h5>C / C++</h5>
-                <p>System-level logic and memory control.</p>
-            </div>
-            <div class="col-6 col-md-4 mb-4"><i class="fa-brands fa-html5 fa-2x greenTest mb-2"></i>
-                <h5>HTML / CSS / Bootstrap</h5>
-                <p>Responsive web structure and layout.</p>
-            </div>
-            <div class="col-6 col-md-4 mb-4"><i class="fa-brands fa-js fa-2x greenTest mb-2"></i>
-                <h5>JavaScript</h5>
-                <p>Frontend logic and interaction.</p>
-            </div>
-            <div class="col-6 col-md-4 mb-4"><i class="fa-solid fa-microchip fa-2x greenTest mb-2"></i>
-                <h5>IoT / ESP32 / Arduino</h5>
-                <p>Automation and sensor systems.</p>
-            </div>
-            <div class="col-6 col-md-4 mb-4"><i class="fa-brands fa-github fa-2x greenTest mb-2"></i>
-                <h5>Git & GitHub</h5>
-                <p>Version control and collaboration.</p>
-            </div>
-            <div class="col-6 col-md-4 mb-4"><i class="fa-brands fa-java fa-2x greenTest mb-2"></i>
-                <h5>Java</h5>
-                <p>OOP and backend console programs.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="container text-center py-5">
-        <h1 class="glow mb-5">Projects</h1>
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="project-card h-100 d-flex flex-column justify-content-center p-4">
-                    <h5 class="greenTest">Smart Garden</h5>
-                    <p>IoT system using ESP32 and Blynk for automation and monitoring.</p>
+            <!-- Click the existing hero terminal to expand the interactive Minishell -->
+            <div aria-label="Interactive Minishell launch area" class="hero-visual">
+                <div aria-controls="demo-modal" aria-haspopup="dialog" aria-label="Try the interactive Minishell demo"
+                    class="terminal-window terminal-launch" id="hero-minishell-launch" role="button" tabindex="0">
+                    <div class="terminal-header">
+                        <div aria-hidden="true" class="window-dots"><i></i><i></i><i></i></div>
+                        <span>linthant — ~/portfolio — zsh</span>
+                        <span aria-hidden="true" class="hero-demo-hint">TRY DEMO ↗</span>
+                    </div>
+                    <div class="terminal-code">
+                        <div class="code-comment">// A little about what I build</div>
+                        <div><span class="code-green">const</span> developer = {</div>
+                        <div class="code-indent"><span class="code-muted">name:</span> <span class="code-purple">"Lin Thant Kyaw"</span>,</div>
+                        <div class="code-indent"><span class="code-muted">focus:</span> [</div>
+                        <div class="code-indent-2"><span class="code-purple">"systems"</span>, <span class="code-purple">"tools"</span>,</div>
+                        <div class="code-indent-2"><span class="code-purple">"computer vision"</span></div>
+                        <div class="code-indent">],</div>
+                        <div class="code-indent"><span class="code-muted">curious:</span> <span class="code-green">true</span></div>
+                        <div>};</div>
+                        <div class="terminal-prompt"><span class="code-green">$</span> <span id="terminal-command">build --something-useful</span><span aria-hidden="true" class="cursor"></span></div>
+                    </div>
+                </div>
+                <div class="terminal-sticker">
+                    <div><b>01</b> C / Unix systems</div>
+                    <div><b>02</b> Python / Vision</div>
+                    <div><b>03</b> Developer tools</div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="project-card h-100 d-flex flex-column justify-content-center p-4">
-                    <h5 class="greenTest">Portfolio Website</h5>
-                    <p>Fully responsive personal portfolio using glowing theme.</p>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="project-card h-100 d-flex flex-column justify-content-center p-4">
-                    <h5 class="greenTest">ft_printf</h5>
-                    <p>Custom printf clone in C for formatted output (42 Project).</p>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="project-card h-100 d-flex flex-column justify-content-center p-4">
-                    <h5 class="greenTest">ft_get_next_line</h5>
-                    <p>C function that reads one line at a time with efficient memory.</p>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="project-card h-100 d-flex flex-column justify-content-center p-4">
-                    <h5 class="greenTest">Bangkok Bank Credit System</h5>
-                    <p>Java console credit management simulation app.</p>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="project-card h-100 d-flex flex-column justify-content-center p-4">
-                    <h5 class="greenTest">E-commerce Website</h5>
-                    <p>Dynamic shop using HTML, CSS, JS, and PHP with cart system.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Client Reviews -->
-    <section id="reviews" class="container text-center py-5">
-        <h1 class="glow mb-5">Client Reviews</h1>
+        <!-- Engineering Focus: one horizontal band as in the reference screenshot -->
+        <section aria-label="Engineering focus areas" class="strength-strip" id="focus">
+            <div class="container strength-grid">
+                <div class="strength">
+                    <span>01 / CORE</span>
+                    <h3>Systems Programming</h3>
+                    <p>Unix processes, system calls, memory management, and cross-platform development.</p>
+                </div>
+                <div class="strength">
+                    <span>02 / LOGIC</span>
+                    <h3>Algorithms &amp; Data Structures</h3>
+                    <p>Sorting, stacks, graph traversal, parsing, and problem-solving.</p>
+                </div>
+                <div class="strength">
+                    <span>03 / QUALITY</span>
+                    <h3>Testing &amp; Reliability</h3>
+                    <p>Automated testing, debugging, regression checks, and code review.</p>
+                </div>
+                <div class="strength">
+                    <span>04 / BUILD</span>
+                    <h3>Developer Tools &amp; Automation</h3>
+                    <p>Shell workflows, reusable commands, environments, and productivity tools.</p>
+                </div>
+            </div>
+        </section>
 
-        <div id="reviewCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-            <div class="carousel-inner">
-
-                <!-- Review 1 -->
-                <div class="carousel-item active">
-                    <div class="card mx-auto"
-                        style="max-width: 600px; background: rgba(32,32,32,0.9); border: 1px solid var(--primary-border); border-radius: 1rem;">
-                        <div class="card-body">
-                            <img src="https://i.pravatar.cc/120?img=12"
-                                class="rounded-circle mb-3 border border-success" alt="Sophia Lee">
-                            <h5 class="greenTest mb-3">Sophia Lee</h5>
-                            <p>"Working with Lin was amazing! He built a smooth, responsive site that perfectly fits my
-                                brand aesthetic."</p>
-                            <div class="text-left mt-4">
-                                <small>Design Quality</small>
-                                <div class="progress" style="height: 8px;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 95%;"></div>
+        <!-- Projects -->
+        <section class="section-layout section-border" id="projects">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">01 / SELECTED WORK</span>
+                        <h2>Projects with real engineering <span class="greenTest">behind them.</span></h2>
+                    </div>
+                    <p>Four projects exploring systems programming, computer vision, graphics, and developer automation. Explore each project’s engineering details, source code, and interactive browser demo.</p>
+                </div>
+                <div class="project-grid">
+                    <!-- Minishell -->
+                    <article class="project-card" data-project="minishell">
+                        <div class="project-preview preview-grid">
+                            <div class="mini-terminal">
+                                <div class="mini-header"><i></i><i></i><i></i></div>
+                                <div class="mini-code">
+                                    <div><span class="code-green">minishell$</span> echo "hello world" | wc -w</div>
+                                    <div class="code-light">2</div>
+                                    <div><span class="code-green">minishell$</span> export DEV=42</div>
+                                    <div><span class="code-green">minishell$</span> echo "$DEV"</div>
+                                    <div class="code-light">42</div>
+                                    <div><span class="code-green">minishell$</span> _</div>
                                 </div>
                             </div>
+                            <span class="preview-label">Illustrative terminal preview</span>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-meta"><span>Systems / C / Unix</span><span class="project-badge">42 project</span></div>
+                            <h3>Minishell</h3>
+                            <p>A Unix-like command interpreter in C exploring parsing, processes, pipelines, file descriptors, signal handling, and memory management.</p>
+                            <div class="project-tools-row">
+                                <div class="project-tags"><span>C</span><span>POSIX</span><span>Make</span><span>Readline</span></div>
+                                <button aria-controls="demo-modal" aria-haspopup="dialog" class="my-button try-demo-button"
+                                    data-demo="minishell" id="minishell-card-launch" type="button">Try Demo <span aria-hidden="true">↗</span></button>
+                            </div>
+                            <div class="project-links">
+                                <button aria-controls="project-overview-modal" aria-haspopup="dialog" class="overview-link"
+                                    data-overview="minishell" type="button">View Project Overview ↗</button>
+                                <a class="source-link"
+                                    href="https://github.com/linthantkyaw2002/42_Bangkok/tree/main/minishell"
+                                    rel="noopener noreferrer" target="_blank">View source code ↗</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Face Attendance -->
+                    <article class="project-card" data-project="face">
+                        <div class="project-preview preview-grid">
+                            <div class="scan-stage">
+                                <div class="scan-label">FACE SCAN<br/><b>UI CONCEPT</b></div>
+                                <div class="scan-frame">
+                                    <div class="scan-face"></div>
+                                    <div class="scan-bracket"></div>
+                                    <div class="scan-line"></div>
+                                </div>
+                                <div class="scan-info">FEATURE EXTRACTION<br/>FACE MATCHING</div>
+                            </div>
+                            <span class="preview-label">Concept illustration · not app screenshot</span>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-meta"><span>Computer Vision / Python</span><span class="project-badge">Stamford project</span></div>
+                            <h3>Face Attendance</h3>
+                            <p>A facial-recognition attendance application focused on structured face data, preprocessing, feature extraction, and identity classification.</p>
+                            <div class="project-tools-row">
+                                <div class="project-tags"><span>Python</span><span>OpenCV</span><span>FaceNet</span><span>KNN</span></div>
+                                <button aria-controls="demo-modal" aria-haspopup="dialog" class="my-button try-demo-button"
+                                    data-demo="face" id="face-card-launch" type="button">Try Demo <span aria-hidden="true">↗</span></button>
+                            </div>
+                            <div class="project-links">
+                                <button aria-controls="project-overview-modal" aria-haspopup="dialog" class="overview-link"
+                                    data-overview="face" type="button">View Project Overview ↗</button>
+                                <a class="source-link"
+                                    href="https://github.com/linthantkyaw2002/Stamford/tree/main/FaceAttendance_App"
+                                    rel="noopener noreferrer" target="_blank">View source code ↗</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- so_long -->
+                    <article class="project-card" data-project="solong">
+                        <div class="project-preview preview-grid">
+                            <div class="game-stage">
+                                <div aria-label="Decorative pixel-game map" class="tile-map" id="tilemap" role="img"></div>
+                            </div>
+                            <span class="preview-label">Concept illustration · not gameplay capture</span>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-meta"><span>Graphics / Interactive</span><span class="project-badge">42 project</span></div>
+                            <h3>so_long</h3>
+                            <p>A 2D pixel-art game in C exploring pixel-buffer rendering, layer composition, map validation, animation, and collision detection.</p>
+                            <div class="project-tools-row">
+                                <div class="project-tags"><span>C</span><span>MiniLibX</span><span>2D Graphics</span><span>Game Logic</span></div>
+                                <button aria-controls="demo-modal" aria-haspopup="dialog" class="my-button try-demo-button"
+                                    data-demo="solong" id="solong-card-launch" type="button">Try Demo <span aria-hidden="true">↗</span></button>
+                            </div>
+                            <div class="project-links">
+                                <button aria-controls="project-overview-modal" aria-haspopup="dialog" class="overview-link"
+                                    data-overview="solong" type="button">View Project Overview ↗</button>
+                                <a class="source-link"
+                                    href="https://github.com/linthantkyaw2002/42_Bangkok/tree/main/so_long"
+                                    rel="noopener noreferrer" target="_blank">View source code ↗</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Flow CLI -->
+                    <article class="project-card" data-project="flow">
+                        <div class="project-preview preview-grid">
+                            <div class="mini-terminal">
+                                <div class="mini-header"><i></i><i></i><i></i></div>
+                                <div class="mini-code">
+                                    <div><span class="code-green">$</span> flow start</div>
+                                    <div class="code-muted">recording commands...</div>
+                                    <div><span class="code-green">$</span> make re</div>
+                                    <div><span class="code-green">$</span> ./minishell</div>
+                                    <div><span class="code-green">$</span> flow stop</div>
+                                    <div class="code-muted">workflow saved</div>
+                                    <div><span class="code-green">$</span> flow list</div>
+                                </div>
+                            </div>
+                            <span class="preview-label">Illustrative terminal preview</span>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-meta"><span>Tooling / Shell</span><span class="project-badge">Personal project</span></div>
+                            <h3>Flow CLI</h3>
+                            <p>An independent macOS/Linux developer tool for recording, saving, and replaying shell workflows to automate repetitive development tasks.</p>
+                            <div class="project-tools-row">
+                                <div class="project-tags"><span>C</span><span>Bash</span><span>Zsh</span><span>macOS / Linux</span></div>
+                                <button aria-controls="demo-modal" aria-haspopup="dialog" class="my-button try-demo-button"
+                                    data-demo="flow" id="flow-card-launch" type="button">Try Demo <span aria-hidden="true">↗</span></button>
+                            </div>
+                            <div class="project-links">
+                                <button aria-controls="project-overview-modal" aria-haspopup="dialog" class="overview-link"
+                                    data-overview="flow" type="button">View Project Overview ↗</button>
+                                <a class="source-link" href="https://github.com/linthantkyaw2002/Flow"
+                                    rel="noopener noreferrer" target="_blank">View source code ↗</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="section-layout section-border" id="skills">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">02 / TOOLKIT</span>
+                        <h2>Technology is a tool. <span class="greenTest">Problem-solving is the skill.</span></h2>
+                    </div>
+                </div>
+                <div class="skills-grid">
+                    <article class="skill-card" data-skill="Programming Languages">
+                        <button aria-label="Programming Languages — show more details" aria-pressed="false"
+                            class="skill-flip" type="button">
+                            <span class="skill-flip-inner">
+                                <span class="skill-face skill-front">
+                                    <span class="skill-symbol">{ }</span>
+                                    <span class="skill-number">01 / LANGUAGES</span>
+                                    <strong class="skill-title">Programming Languages</strong>
+                                    <span class="skill-summary">C · Python · Java · JavaScript · SQL · PHP</span>
+                                    <span class="skill-hint">Hover or tap to explore ↗</span>
+                                </span>
+                                <span aria-hidden="true" class="skill-face skill-back">
+                                    <span class="skill-back-number">01 / LANGUAGES</span>
+                                    <strong class="skill-back-title">Languages in Practice</strong>
+                                    <span class="skill-detail"><b>C</b> — Unix shells, CLI utilities, algorithms, and graphics</span>
+                                    <span class="skill-detail"><b>Python</b> — Computer vision, automation, and data processing</span>
+                                    <span class="skill-detail"><b>Java · JS · SQL · PHP</b> — Application and database development</span>
+                                    <span class="skill-hint">Click or tap to see summary ↶</span>
+                                </span>
+                            </span>
+                        </button>
+                    </article>
+                    <article class="skill-card" data-skill="Systems &amp; Environments">
+                        <button aria-label="Systems &amp; Environments — show more details" aria-pressed="false"
+                            class="skill-flip" type="button">
+                            <span class="skill-flip-inner">
+                                <span class="skill-face skill-front">
+                                    <span class="skill-symbol">$_</span>
+                                    <span class="skill-number">02 / SYSTEMS</span>
+                                    <strong class="skill-title">Systems &amp; Environments</strong>
+                                    <span class="skill-summary">POSIX · Linux · macOS · Processes · Memory</span>
+                                    <span class="skill-hint">Hover or tap to explore ↗</span>
+                                </span>
+                                <span aria-hidden="true" class="skill-face skill-back">
+                                    <span class="skill-back-number">02 / SYSTEMS</span>
+                                    <strong class="skill-back-title">Operating Systems in Practice</strong>
+                                    <span class="skill-detail"><b>Unix APIs</b> — fork, exec, pipes, signals, and file descriptors</span>
+                                    <span class="skill-detail"><b>Memory</b> — Dynamic allocation, cleanup, and leak debugging</span>
+                                    <span class="skill-detail"><b>Environments</b> — Bash, Zsh, Make, XQuartz, native dependencies</span>
+                                    <span class="skill-hint">Click or tap to see summary ↶</span>
+                                </span>
+                            </span>
+                        </button>
+                    </article>
+                    <article class="skill-card" data-skill="Algorithms &amp; Data Structures">
+                        <button aria-label="Algorithms &amp; Data Structures — show more details" aria-pressed="false"
+                            class="skill-flip" type="button">
+                            <span class="skill-flip-inner">
+                                <span class="skill-face skill-front">
+                                    <span class="skill-symbol">&lt;&gt;</span>
+                                    <span class="skill-number">03 / ALGORITHMS</span>
+                                    <strong class="skill-title">Algorithms &amp; Data Structures</strong>
+                                    <span class="skill-summary">Sorting · Stacks · Graphs · Parsing</span>
+                                    <span class="skill-hint">Hover or tap to explore ↗</span>
+                                </span>
+                                <span aria-hidden="true" class="skill-face skill-back">
+                                    <span class="skill-back-number">03 / ALGORITHMS</span>
+                                    <strong class="skill-back-title">Algorithms in Practice</strong>
+                                    <span class="skill-detail"><b>Sorting</b> — Stack operations and push_swap optimization</span>
+                                    <span class="skill-detail"><b>Graphs</b> — Flood-fill traversal and map validation</span>
+                                    <span class="skill-detail"><b>Parsing</b> — Tokenization, expansion, and command structures</span>
+                                    <span class="skill-hint">Click or tap to see summary ↶</span>
+                                </span>
+                            </span>
+                        </button>
+                    </article>
+                    <article class="skill-card" data-skill="Software Testing">
+                        <button aria-label="Software Testing — show more details" aria-pressed="false" class="skill-flip"
+                            type="button">
+                            <span class="skill-flip-inner">
+                                <span class="skill-face skill-front">
+                                    <span class="skill-symbol">✓</span>
+                                    <span class="skill-number">04 / QUALITY</span>
+                                    <strong class="skill-title">Software Testing</strong>
+                                    <span class="skill-summary">Selenium · Regression · Debugging · Review</span>
+                                    <span class="skill-hint">Hover or tap to explore ↗</span>
+                                </span>
+                                <span aria-hidden="true" class="skill-face skill-back">
+                                    <span class="skill-back-number">04 / QUALITY</span>
+                                    <strong class="skill-back-title">Building for Reliability</strong>
+                                    <span class="skill-detail"><b>Automation</b> — Python and Selenium WebDriver</span>
+                                    <span class="skill-detail"><b>Validation</b> — Positive, negative, and edge cases</span>
+                                    <span class="skill-detail"><b>Engineering</b> — Peer review, regression checks, coding standards</span>
+                                    <span class="skill-hint">Click or tap to see summary ↶</span>
+                                </span>
+                            </span>
+                        </button>
+                    </article>
+                    <article class="skill-card" data-skill="Databases &amp; Processing">
+                        <button aria-label="Databases &amp; Processing — show more details" aria-pressed="false"
+                            class="skill-flip" type="button">
+                            <span class="skill-flip-inner">
+                                <span class="skill-face skill-front">
+                                    <span class="skill-symbol">DB</span>
+                                    <span class="skill-number">05 / DATA</span>
+                                    <strong class="skill-title">Databases &amp; Processing</strong>
+                                    <span class="skill-summary">SQL · Oracle APEX · OpenCV · FaceNet · KNN</span>
+                                    <span class="skill-hint">Hover or tap to explore ↗</span>
+                                </span>
+                                <span aria-hidden="true" class="skill-face skill-back">
+                                    <span class="skill-back-number">05 / DATA</span>
+                                    <strong class="skill-back-title">Working with Data</strong>
+                                    <span class="skill-detail"><b>Databases</b> — Relational schemas, SQL, and data integrity</span>
+                                    <span class="skill-detail"><b>Applications</b> — Database-driven systems built in Oracle APEX</span>
+                                    <span class="skill-detail"><b>Pipelines</b> — Face preprocessing, embeddings, KNN classification</span>
+                                    <span class="skill-hint">Click or tap to see summary ↶</span>
+                                </span>
+                            </span>
+                        </button>
+                    </article>
+                    <article class="skill-card" data-skill="Development &amp; Integration">
+                        <button aria-label="Development &amp; Integration — show more details" aria-pressed="false"
+                            class="skill-flip" type="button">
+                            <span class="skill-flip-inner">
+                                <span class="skill-face skill-front">
+                                    <span class="skill-symbol">//</span>
+                                    <span class="skill-number">06 / TOOLING</span>
+                                    <strong class="skill-title">Development &amp; Integration</strong>
+                                    <span class="skill-summary">Git · Make · Bash · Zsh · MiniLibX · PyInstaller</span>
+                                    <span class="skill-hint">Hover or tap to explore ↗</span>
+                                </span>
+                                <span aria-hidden="true" class="skill-face skill-back">
+                                    <span class="skill-back-number">06 / TOOLING</span>
+                                    <strong class="skill-back-title">Connecting Tools</strong>
+                                    <span class="skill-detail"><b>Build tools</b> — Makefiles, Git, and dependency setup</span>
+                                    <span class="skill-detail"><b>Automation</b> — Shell hooks and replayable workflows</span>
+                                    <span class="skill-detail"><b>Integration</b> — MiniLibX, OpenCV, PyInstaller, macOS packaging</span>
+                                    <span class="skill-hint">Click or tap to see summary ↶</span>
+                                </span>
+                            </span>
+                        </button>
+                    </article>
+                </div>
+                <div class="engineering-mindset">
+                    <h3>How I Approach Engineering</h3>
+                    <p>Studying at 42 Bangkok has strengthened my ability to solve problems independently, read technical documentation, and work within strict coding constraints. Through individual and collaborative projects at 42 Bangkok and Stamford International University, I’ve learned the importance of communication, peer review, continuous testing, and understanding design decisions—not simply completing features.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Currently Building -->
+        <section class="section-layout section-border" id="now">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">03 / ON MY WORKBENCH</span>
+                        <h2>From repetitive commands to <span class="greenTest">reusable workflows.</span></h2>
+                    </div>
+                    <p>An independent developer tool inspired by a problem I encountered while building Minishell.</p>
+                </div>
+                <div class="now-card">
+                    <div class="now-details">
+                        <span class="eyebrow">CURRENTLY BUILDING · FLOW CLI</span>
+                        <h3>Save the steps. Reuse the workflow.</h3>
+                        <p>Flow began with a simple frustration: repeatedly running the same commands after changes to Minishell. I started building a tool to capture working command sequences, save them as named workflows, and replay them without retyping each step.</p>
+                        <p>Today, Flow records and manages command sequences for Bash and Zsh on macOS and Linux.</p>
+                        <h4>Where I Want to Take It</h4>
+                        <p>My long-term goal is a platform where developers can create and share trusted workflows for project setup, testing, builds, and development environments.</p>
+                        <h4>What I’m Exploring Next</h4>
+                        <ul>
+                            <li>Sharing and importing workflow templates</li>
+                            <li>Prerequisite checks and execution order</li>
+                            <li>Portability across environments</li>
+                            <li>Workflow previews and safer execution</li>
+                            <li>Testing, documentation, and reliability</li>
+                        </ul>
+                        <a class="source-link greenTest" href="https://github.com/linthantkyaw2002/Flow"
+                            rel="noopener noreferrer" target="_blank">Follow development ↗</a>
+                    </div>
+                    <div class="now-terminal">
+                        <div class="mini-header"><i></i><i></i><i></i></div>
+                        <div class="mini-code">
+                            <div class="code-muted"># Save once, replay whenever needed</div>
+                            <div><span class="code-green">$</span> flow start</div>
+                            <div><span class="code-green">$</span> make re</div>
+                            <div><span class="code-green">$</span> ./minishell</div>
+                            <div><span class="code-green">$</span> flow stop</div>
+                            <div><span class="code-green">$</span> flow build regression</div>
+                            <div><span class="code-green">$</span> flow run regression</div>
+                            <div class="code-muted"># Next: share and preview workflows</div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Review 2 -->
-                <div class="carousel-item">
-                    <div class="card mx-auto"
-                        style="max-width: 600px; background: rgba(32,32,32,0.9); border: 1px solid var(--primary-border); border-radius: 1rem;">
-                        <div class="card-body">
-                            <img src="https://i.pravatar.cc/120?img=32"
-                                class="rounded-circle mb-3 border border-success" alt="Ethan Chen">
-                            <h5 class="greenTest mb-3">Ethan Chen</h5>
-                            <p>"Lin handled my project professionally and added creative touches I didn’t even expect.
-                                Excellent work!"</p>
-                            <div class="text-left mt-4">
-                                <small>Responsiveness</small>
-                                <div class="progress" style="height: 8px;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 90%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Review 3 -->
-                <div class="carousel-item">
-                    <div class="card mx-auto"
-                        style="max-width: 600px; background: rgba(32,32,32,0.9); border: 1px solid var(--primary-border); border-radius: 1rem;">
-                        <div class="card-body">
-                            <img src="https://i.pravatar.cc/120?img=47"
-                                class="rounded-circle mb-3 border border-success" alt="Maria Gonzalez">
-                            <h5 class="greenTest mb-3">Maria Gonzalez</h5>
-                            <p>"Great communication, great results! The website looks modern, runs fast, and works on
-                                all my devices."</p>
-                            <div class="text-left mt-4">
-                                <small>Overall Satisfaction</small>
-                                <div class="progress" style="height: 8px;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 97%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+        </section>
 
-            <!-- Carousel Controls -->
-            <a class="carousel-control-prev" href="#reviewCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            </a>
-            <a class="carousel-control-next" href="#reviewCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            </a>
+        <!-- Contact -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="contact-card">
+                    <span class="eyebrow">04 / LET'S CONNECT</span>
+                    <h2>Interested in working together<span class="greenTest">?</span></h2>
+                    <p>I'm looking for opportunities to grow as a Software Engineering Intern, contribute to real development projects, and learn from experienced engineers. I'm open to systems, application development, testing, and developer tooling.</p>
+                    <div class="contact-actions">
+                        <a class="my-button linkedin-button" href="https://www.linkedin.com/in/lin-thant-kyaw-77894b3a5"
+                            rel="noopener noreferrer" target="_blank">Connect on LinkedIn ↗</a>
+                        <span class="contact-or">or</span>
+                        <a class="contact-email" href="mailto:linthantkyaw2002@gmail.com">linthantkyaw2002@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-inner">
+            <span>© 2026 Lin Thant Kyaw. Designed with intention.</span>
+            <div><a href="#home">Back to top ↑</a><a href="https://github.com/linthantkyaw2002" rel="noopener noreferrer" target="_blank">GitHub ↗</a></div>
         </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="container text-center py-5">
-        <h1 class="glow mb-4">Contact</h1>
-        <p>Interested in working together? Let's connect!</p>
-        <form class="mx-auto" style="max-width:600px;">
-            <div class="form-group"><input type="text" class="form-control" placeholder="Your Name" required /></div>
-            <div class="form-group"><input type="email" class="form-control" placeholder="Your Email" required /></div>
-            <div class="form-group"><textarea class="form-control" rows="4" placeholder="Your Message"
-                    required></textarea></div>
-            <div class="my-button mt-3"><a href="#">Send Message</a></div>
-        </form>
-    </section>
-
-    <footer class="text-center py-3 mt-4">
-        <p class="m-0 small">© 2025 Lin Thant Kyaw. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
-</body>
+    <!-- Shared demo window: Minishell, Face Attendance, Flow CLI, and so_long. -->
+    <dialog aria-labelledby="demo-modal-title" class="demo-modal" id="demo-modal">
+        <div class="demo-modal-frame">
+            <div class="demo-modal-header">
+                <div aria-hidden="true" class="window-dots"><i></i><i></i><i></i></div>
+                <span id="demo-modal-title">linthant — ~/portfolio — minishell</span>
+                <button aria-label="Close demo" class="demo-close" id="demo-close" type="button"></button>
+            </div>
+            <div class="demo-modal-content" id="demo-modal-content"></div>
+        </div>
+    </dialog>
+    <dialog aria-labelledby="overview-title" class="overview-modal" id="project-overview-modal">
+        <div class="overview-frame">
+            <div class="overview-header"><span class="overview-header-label">PROJECT / ENGINEERING OVERVIEW</span><button aria-label="Close project overview" class="overview-close" id="overview-close" type="button">×</button></div>
+            <div class="overview-scroll" id="overview-scroll">
+                <div id="overview-content"></div>
+            </div>
+        </div>
+    </dialog>
+    <template id="overview-template-flow">
+        <header class="overview-intro">
+            <span class="overview-kicker">ENGINEERING CASE STUDY</span>
+            <h2 id="overview-title">Flow CLI</h2>
+            <p class="overview-stack">C · Bash · Zsh · macOS · Linux</p>
+        </header>
+        <section class="overview-block">
+            <h3>Project Background</h3>
+            <p>While developing Minishell with a teammate, I kept rerunning the same command sequences to check for regressions. I started Flow independently so I could record reliable command sequences, save them under names, and replay them instead of typing everything again.</p>
+        </section>
+        <section class="overview-block">
+            <h3>Technical Implementation</h3>
+            <ul class="overview-list">
+                <li><strong>Shell integration:</strong> Capturing interactive commands through Bash and Zsh hooks.</li>
+                <li><strong>Workflow recording:</strong> Recording command sequences and saving reusable named workflows.</li>
+                <li><strong>Management:</strong> Listing, organizing, copying, combining, and restoring workflows.</li>
+                <li><strong>Replay:</strong> Running saved command sequences in the user’s shell environment.</li>
+                <li><strong>Cross-platform support:</strong> Supporting macOS and Linux environments, installation scripts, and shell differences.</li>
+                <li><strong>Reliability:</strong> Handling arguments, invalid input, workflow state, and filesystem-related operations.</li>
+            </ul>
+        </section>
+        <section class="overview-block">
+            <h3>Engineering Challenges</h3>
+            <p>Bash and Zsh use different command capture mechanisms, and replay depends on directory context, execution order, environment configuration, and safe handling of failures.</p>
+        </section>
+        <section class="overview-block">
+            <h3>What I Learned</h3>
+            <p>Flow taught me to recognize and solve inefficiencies in my own development workflow—and consider usability, documentation, portability, and test coverage as part of engineering.</p>
+        </section>
+        <section class="overview-block">
+            <h3>Future Direction</h3>
+            <p>My longer-term vision is to let developers import and share reviewed workflows, check prerequisites, preview actions, and automate repeatable development setups with better safety controls.</p>
+        </section>
+        <p class="overview-note">The portfolio’s Flow demo is a browser simulation. It never runs shell commands or Git operations on visitors’ computers.</p>
+        <div class="overview-footer"><a class="overview-source" href="https://github.com/linthantkyaw2002/Flow" rel="noopener noreferrer" target="_blank">View source code ↗</a></div>
+    </template>
+    <template id="overview-template-solong">
+        <header class="overview-intro">
+            <span class="overview-kicker">ENGINEERING CASE STUDY</span>
+            <h2 id="overview-title">so_long</h2>
+            <p class="overview-stack">C · MiniLibX · Pixel Buffers · 2D Graphics</p>
+        </header>
+        <section class="overview-block">
+            <h3>Project Background</h3>
+            <p>so_long is a 42 Bangkok tile-based game developed in C with MiniLibX. Beyond making playable levels, I explored how individual pixels and sprite layers are composed into a complete 2D scene.</p>
+        </section>
+        <section class="overview-block">
+            <h3>Technical Implementation</h3>
+            <ul class="overview-list">
+                <li><strong>Pixel-level rendering:</strong> Reading colors from image buffers and writing them to a canvas using pixel offsets, line lengths, and bits-per-pixel information.</li>
+                <li><strong>Layer composition:</strong> Rendering grass and floor tiles first, then walls, collectibles, exits, the player, and enemies in order.</li>
+                <li><strong>Transparency:</strong> Skipping transparent sprite pixels so foreground objects blend correctly with previously drawn layers.</li>
+                <li><strong>Map validation:</strong> Using flood-fill traversal to verify that collectibles and the exit are reachable.</li>
+                <li><strong>Game systems:</strong> Managing player movement, enemy behavior, collisions, collectibles, restart, and completion.</li>
+                <li><strong>Animation and portability:</strong> Advancing animation frames and handling graphics-library dependencies across Linux and macOS.</li>
+            </ul>
+        </section>
+        <section class="overview-block">
+            <h3>Engineering Challenges</h3>
+            <p>The rendering order, transparency handling, moving enemies, underlying tile state, and animation timing must remain consistent. Porting across environments also required careful graphics configuration and cleanup.</p>
+        </section>
+        <section class="overview-block">
+            <h3>What I Learned</h3>
+            <p>I gained practical experience with pixel memory, scene composition, event-driven game logic, graph traversal, resource management, and compatibility between environments.</p>
+        </section>
+        <p class="overview-note">The playable website demo is a JavaScript browser adaptation using original artwork; the source project is written in C.</p>
+        <div class="overview-footer"><a class="overview-source" href="https://github.com/linthantkyaw2002/42_Bangkok/tree/main/so_long" rel="noopener noreferrer" target="_blank">View source code ↗</a></div>
+    </template>
+    <template id="overview-template-face">
+        <header class="overview-intro">
+            <span class="overview-kicker">ENGINEERING CASE STUDY</span>
+            <h2 id="overview-title">Face Attendance</h2>
+            <p class="overview-stack">Python · OpenCV · MTCNN · FaceNet · KNN</p>
+        </header>
+        <section class="overview-block">
+            <h3>Project Background</h3>
+            <p>Face Attendance is a Stamford International University project for recognizing registered individuals and recording attendance through a desktop application. I focused on building a consistent recognition pipeline and managing the application environment before prioritizing visual polish.</p>
+        </section>
+        <section class="overview-block">
+            <h3>Technical Implementation</h3>
+            <ul class="overview-list">
+                <li><strong>Data collection:</strong> Capturing facial samples at multiple angles for more representative training data.</li>
+                <li><strong>Preprocessing:</strong> Detecting, aligning, and preparing face regions with computer vision tools.</li>
+                <li><strong>Feature extraction:</strong> Converting facial images to numerical FaceNet embeddings.</li>
+                <li><strong>Classification:</strong> Using K-Nearest Neighbors to compare embeddings and predict registered identities.</li>
+                <li><strong>Attendance recording:</strong> Associating recognized identities with recorded attendance entries.</li>
+                <li><strong>Application integration:</strong> Working with Python dependencies, camera access, native libraries, and macOS application packaging.</li>
+            </ul>
+        </section>
+        <section class="overview-block">
+            <h3>Engineering Challenges</h3>
+            <p>The recognition pipeline depends on lighting, face angles, data consistency, and preprocessing choices. Packaging for Apple Silicon also required resolving Python environment differences, native dependencies, application-bundle settings, and camera permissions.</p>
+        </section>
+        <section class="overview-block">
+            <h3>What I Learned</h3>
+            <p>Reliable applications require more than correct model code. I learned to consider dataset quality, classification evaluation, dependency versions, permissions, and runtime compatibility alongside usability.</p>
+        </section>
+        <p class="overview-note">The browser demonstration tracks detected faces only. Unlike the original application, it does not perform identity recognition.</p>
+        <div class="overview-footer"><a class="overview-source" href="https://github.com/linthantkyaw2002/Stamford/tree/main/FaceAttendance_App" rel="noopener noreferrer" target="_blank">View source code ↗</a></div>
+    </template>
+    <template id="overview-template-minishell">
+        <header class="overview-intro">
+            <span class="overview-kicker">ENGINEERING CASE STUDY</span>
+            <h2 id="overview-title">Minishell</h2>
+            <p class="overview-stack">C · Unix · POSIX · Readline · Make</p>
+        </header>
+        <section class="overview-block">
+            <h3>Project Background</h3>
+            <p>Minishell is a collaborative 42 Bangkok project where we implemented a Unix-like command interpreter in C. I wanted to understand how a shell connects user commands to the operating system. A shell runs in user space and uses system calls to request services from the kernel, including creating processes, executing programs, and communicating through pipes.</p>
+        </section>
+        <section class="overview-block">
+            <h3>Technical Implementation</h3>
+            <ul class="overview-list">
+                <li><strong>Parsing:</strong> Tokenization, environment-variable expansion, quoting, command structures, and redirections.</li>
+                <li><strong>Kernel interfaces:</strong> Using fork(), execve(), and waitpid() to create, execute, and manage child processes.</li>
+                <li><strong>Pipelines and file descriptors:</strong> Using pipe() and dup2() to connect standard input and output across commands.</li>
+                <li><strong>Built-in commands:</strong> Supporting cd, echo, pwd, env, export, unset, and exit.</li>
+                <li><strong>Signals and memory:</strong> Handling terminal interruptions, allocated resources, and cleanup.</li>
+            </ul>
+        </section>
+        <section class="overview-block">
+            <h3>Engineering Challenges</h3>
+            <p>Parsing, expansion, redirection, and execution are tightly connected. Small changes can affect many command scenarios, so systematic regression testing and careful resource handling were essential.</p>
+        </section>
+        <section class="overview-block">
+            <h3>What I Learned</h3>
+            <p>I developed a stronger understanding of the boundary between user-space applications and the kernel, inter-process communication, debugging, and collaborative systems development. The repeated need to rerun tests after changes also inspired my independent Flow CLI project.</p>
+        </section>
+        <p class="overview-note">Minishell uses operating-system APIs; it does not implement kernel code.</p>
+        <div class="overview-footer"><a class="overview-source" href="https://github.com/linthantkyaw2002/42_Bangkok/tree/main/minishell" rel="noopener noreferrer" target="_blank">View source code ↗</a></div>
+    </template>
 
+    <!-- Existing interactions and the new Minishell demo -->
+    <script src="js/main.js?v=27.1" type="module"></script>
+</body>
 </html>

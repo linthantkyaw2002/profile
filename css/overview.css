@@ -1,0 +1,231 @@
+/* V27 engineering overviews — independent informational popup.
+   Existing project grid, card previews, demos and animation rules are unchanged. */
+.project-links {
+    display: flex;
+    gap: 11px 21px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.overview-link {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font: 600 12px var(--mono-font);
+    color: var(--accent-light);
+    text-align: left;
+}
+
+.overview-link:hover, .overview-link:focus-visible {
+    color: #ccffe2;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.overview-link:focus-visible {
+    outline: 2px solid var(--accent-light);
+    outline-offset: 5px;
+    border-radius: 2px;
+}
+
+.engineering-mindset {
+    margin-top: 12px;
+    padding: 17px 0 0;
+    border-top: 1px solid var(--soft-border);
+    max-width: 850px;
+}
+
+.engineering-mindset h3 {
+    color: var(--accent-light);
+    font: 650 13px var(--mono-font);
+    margin: 0 0 8px;
+}
+
+.engineering-mindset p {
+    color: var(--muted-color);
+    font-size: 13px;
+    line-height: 1.75;
+    margin: 0;
+}
+
+.now-details h4 {
+    font-size: 14px;
+    color: #b5f4cf;
+    font-weight: 700;
+    margin: 17px 0 7px;
+}
+
+.now-details ul {
+    margin: 0 0 14px;
+    padding-left: 19px;
+    color: #a9c8b7;
+    font-size: 13px;
+    line-height: 1.85;
+}
+
+.now-details p {
+    max-width: 100%;
+}
+
+.overview-modal {
+    padding: 0;
+    border: 1px solid #3f7254;
+    border-radius: 14px;
+    width: min(790px, calc(100vw - 28px));
+    max-width: none;
+    max-height: min(88vh, 920px);
+    color: #e5f6eb;
+    background: #09130d;
+    overflow: hidden;
+    box-shadow: 0 28px 90px rgba(0,0,0,.72);
+}
+
+.overview-modal::backdrop {
+    background: rgba(0, 0, 0, .78);
+    backdrop-filter: blur(5px);
+}
+
+.overview-frame {
+    min-height: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-height: min(88vh, 920px);
+}
+
+.overview-header {
+    height: 54px;
+    flex-shrink: 0;
+    border-bottom: 1px solid #294b37;
+    background: #13231a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 17px 0 25px;
+}
+
+.overview-header-label {
+    color: #87b79a;
+    font: 600 11px var(--mono-font);
+    letter-spacing: 1px;
+}
+
+.overview-close {
+    background: transparent;
+    border: 0;
+    border-radius: 6px;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    color: #b8dec5;
+    cursor: pointer;
+    font: 28px/1 var(--main-font);
+    display: grid;
+    place-items: center;
+}
+
+.overview-close:hover, .overview-close:focus-visible {
+    color: #fff;
+    background: #24412e;
+}
+
+.overview-scroll {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 27px 34px 32px;
+}
+
+.overview-intro {
+    padding-bottom: 18px;
+    border-bottom: 1px solid #274533;
+}
+
+.overview-kicker {
+    font: 600 10px var(--mono-font);
+    letter-spacing: 1px;
+    color: #7cba96;
+}
+
+.overview-intro h2 {
+    font-size: clamp(27px, 4.3vw, 37px);
+    margin: 10px 0;
+    letter-spacing: -1px;
+}
+
+.overview-stack {
+    font: 12px var(--mono-font);
+    color: #87d9ab;
+    margin: 0;
+    line-height: 1.7;
+}
+
+.overview-block {
+    margin: 23px 0 0;
+}
+
+.overview-block h3 {
+    color: #b1efc9;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 9px;
+}
+
+.overview-block p, .overview-list {
+    font-size: 13px;
+    line-height: 1.85;
+    color: #bdd4c5;
+    margin: 0;
+}
+
+.overview-list {
+    padding-left: 20px;
+}
+
+.overview-list li {
+    margin: 7px 0;
+    padding-left: 2px;
+}
+
+.overview-list strong {
+    color: #e2f6e8;
+    font-weight: 650;
+}
+
+.overview-note {
+    font-size: 12px;
+    line-height: 1.7;
+    color: #9dbdab;
+    border-left: 2px solid #4a8961;
+    margin: 23px 0 0;
+    padding: 9px 12px;
+    background: #13241a;
+}
+
+.overview-footer {
+    padding-top: 22px;
+}
+
+.overview-source {
+    font: 650 12px var(--mono-font);
+    color: #84edb1;
+}
+
+.overview-source:hover {
+    color: #d2ffe5;
+}
+
+@media (max-width: 600px) {
+    .overview-header {
+        padding-left: 15px;
+    }
+    .overview-scroll {
+        padding: 23px 18px 27px;
+    }
+    .overview-header-label {
+        font-size: 9px;
+    }
+    .project-links {
+        gap: 11px 15px;
+    }
+}

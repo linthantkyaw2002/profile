@@ -1,0 +1,5 @@
+/* V17: extra motion for demo triggers only.
+   Existing V16 scroll and hero entrance keyframes remain in style.css unchanged. */
+@media (prefers-reduced-motion: reduce) {
+    .terminal-launch, .try-demo-button { transition: none !important; }
+}

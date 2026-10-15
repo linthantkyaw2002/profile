@@ -1,0 +1,61 @@
+/* ------------------- Face Attendance miniature ------------------- */
+.face-demo {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 19px 21px 20px;
+    color: var(--text-color);
+    scrollbar-color: #345b42 transparent;
+}
+.face-demo-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.face-eyebrow { color: var(--accent-light); font: 700 10px var(--mono-font); letter-spacing: 1.1px; }
+.face-demo-heading h2 { font-size: 21px; font-weight: 750; letter-spacing: -0.6px; margin: 5px 0 0; }
+.face-demo-heading h2 span { color: #9dbaa6; font-weight: 400; }
+.face-back { border: 1px solid #365a43; border-radius: 7px; background: #15261b; color: #b8ddc7; font: 11px var(--mono-font); cursor: pointer; padding: 8px 11px; white-space: nowrap; }
+.face-back:hover { color: white; border-color: #78dfab; }
+.face-disclaimer { font-size: 12px; color: #acc6b6; line-height: 1.65; margin: 9px 0 15px; }
+.face-disclaimer strong { font-weight: 700; color: #e2f7e8; }
+.face-demo-layout { display: grid; grid-template-columns: minmax(0, 1fr) 222px; gap: 18px; align-items: start; }
+.face-left, .face-side { min-width: 0; }
+.face-camera-stage { position: relative; width: 100%; aspect-ratio: 4 / 3; border: 1px solid #3d6750; border-radius: 10px; background: radial-gradient(circle at center, #14291d, #06100b 75%); overflow: hidden; }
+.face-camera-stage video { display: block; width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); visibility: hidden; }
+.face-camera-idle { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: #b6d3c3; font-size: 12px; text-align: center; padding: 20px; }
+.face-camera-idle[hidden] { display: none; }
+.face-camera-idle strong { color: white; font-size: 14px; }
+.face-camera-idle span:last-child { color: #8aa895; }
+.face-camera-glyph { color: var(--accent-light); font: 40px var(--mono-font); line-height: 1.5; }
+.face-camera-label { position: absolute; left: 12px; top: 12px; background: #09170fbf; border: 1px solid #416a4b; color: #9beac0; border-radius: 4px; padding: 4px 7px; font: 9px var(--mono-font); letter-spacing: 0.5px; }
+.face-id-box { position: absolute; z-index: 2; border: 2px solid #61e7a0; border-radius: 5px; box-shadow: 0 0 20px rgba(46, 210, 124, 0.23), inset 0 0 16px rgba(46,210,124,0.06); pointer-events: none; transition: left 0.12s linear, top 0.12s linear, width 0.12s linear, height 0.12s linear; }
+.face-id-box[hidden] { display: none; }
+.face-name-tag { position: absolute; left: -2px; bottom: calc(100% + 5px); display: block; max-width: 190px; padding: 4px 7px; background: #1b6d46; border: 1px solid #85eebb; color: #f8fff9; border-radius: 4px; font: 700 11px var(--mono-font); text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+.face-live-info { min-height: 24px; margin: 10px 0 5px; color: #b6e5ca; font: 11px/1.5 var(--mono-font); }
+.face-privacy { margin: 0; color: #82a58e; font-size: 11px; line-height: 1.65; }
+.face-side { background: linear-gradient(140deg,#112019,#0b1710); border: 1px solid #345442; border-radius: 9px; padding: 15px; }
+.face-field-label, .face-session-heading { color: #87c8a4; font: 700 10px var(--mono-font); letter-spacing: 0.5px; }
+.face-name-input { width: 100%; margin-top: 7px; height: 39px; border: 1px solid #3b6650; border-radius: 7px; background: #07120c; color: white; padding: 9px 11px; font: 13px var(--main-font); }
+.face-name-input:focus { outline: 2px solid #55b988; outline-offset: 2px; }
+.face-name-input::placeholder { color: #88a995; }
+.face-actions { display: flex; flex-direction: column; gap: 8px; margin: 15px 0; }
+.face-main-btn { width: 100%; min-height: 38px; padding: 8px 10px; cursor: pointer; font-size: 12px; }
+.face-record-btn { margin-top: 2px; }
+.face-secondary-btn { min-height: 36px; border: 1px solid #416951; border-radius: 8px; background: #15271b; color: #d5efdf; font-size: 12px; cursor: pointer; }
+.face-secondary-btn:hover:not(:disabled) { border-color: #76dcaa; }
+.face-side button:disabled { opacity: 0.48; cursor: not-allowed; transform: none; }
+.face-session-heading { display: flex; justify-content: space-between; gap: 10px; }
+.face-session-heading span { color: #8eae9b; }
+.face-log { margin-top: 8px; display: flex; flex-direction: column; gap: 7px; font-size: 11px; color: #88a792; overflow-wrap: anywhere; }
+.face-log-entry { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 7px; border-bottom: 1px solid #284735; padding-bottom: 7px; }
+.face-log-entry strong { color: #e1f5e8; }
+.face-log-entry span { color: #92b99f; font: 10px var(--mono-font); }
+@media(max-width: 640px) {
+    .face-demo { padding: 13px 12px 18px; }
+    .face-demo-heading h2 { font-size: 18px; }
+    .face-demo-layout { grid-template-columns: 1fr; gap: 12px; }
+    .face-camera-stage { aspect-ratio: 4 / 3; }
+    .face-side { padding: 12px; }
+    .face-actions { display: grid; grid-template-columns: 1fr 1fr; }
+    .face-record-btn { grid-column: 1 / -1; }
+    .face-name-input { font-size: 16px; }
+    .face-back { padding: 7px; font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .face-id-box { transition: none; } }
