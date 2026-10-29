@@ -142,6 +142,12 @@ header .navbar-brand:hover { color: white; }
     padding: 0;
     cursor: pointer;
     transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+
+    /* Profile image */
+    background-image: url("../assets/images/profile.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .profile-toggle:hover,
 .profile-toggle[aria-expanded="true"] {
