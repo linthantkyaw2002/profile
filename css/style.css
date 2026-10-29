@@ -152,7 +152,7 @@ header .navbar-brand:hover { color: white; }
 .profile-toggle:hover,
 .profile-toggle[aria-expanded="true"] {
     border-color: var(--accent-light);
-    background: rgba(58, 183, 114, 0.18);
+    background-color: rgba(58, 183, 114, 0.18);
     transform: scale(1.045);
 }
 .profile-toggle:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 3px; }
