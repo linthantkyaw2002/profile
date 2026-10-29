@@ -1,4 +1,4 @@
-# Lin Thant Kyaw — Portfolio V26
+# Lin Thant Kyaw — Portfolio 
 
 website : https://linthantkyaw2002.github.io/profile/
 
