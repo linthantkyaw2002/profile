@@ -141,21 +141,25 @@ header .navbar-brand:hover { color: white; }
     flex-shrink: 0;
     padding: 0;
     cursor: pointer;
-    transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
 
-    /* Profile image */
     background-image: url("../assets/images/profile.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    transition: background-color 0.18s ease,
+                border-color 0.18s ease,
+                transform 0.18s ease;
 }
-.profile-toggle:hover,
-.profile-toggle[aria-expanded="true"] {
+.brand-mark.profile-toggle:hover,
+.brand-mark.profile-toggle[aria-expanded="true"] {
     border-color: var(--accent-light);
-    background-color: rgba(58, 183, 114, 0.18);
+    background-image: url("../assets/images/profile.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     transform: scale(1.045);
 }
-
 .profile-toggle:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 3px; }
 .profile-popover {
     position: absolute;
